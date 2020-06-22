@@ -1,0 +1,228 @@
+/* imports */
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+/* variables */
+$PaleBlue: hsl(243, 100%, 93%);
+$GrayishBlue: hsl(229, 7%, 55%);
+$DarkBlue: hsl(228, 56%, 26%);
+$VeryDarkBlue: hsl(229, 57%, 11%);
+$gradient: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+
+/* GENERAL */
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  background: $VeryDarkBlue;
+  height: 100vh;
+}
+/* backgorund */
+#mobile {
+  display: none;
+}
+#desktop {
+  z-index: -2;
+  position: fixed;
+  bottom: 0;
+  height: 50vh;
+  width: 100vw;
+}
+
+/* nav */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .nav-container {
+    height: 22vh;
+    width: 18vw;
+    margin-bottom: 4.7rem;
+    margin-right: 3rem;
+    background-color: $DarkBlue;
+    padding: 2rem;
+    border-radius: 10px;
+    border-top-right-radius: 90px;
+    .logo-container {
+      margin-top: 2rem;
+    }
+    .icons-container {
+      display: flex;
+      margin-top: 1rem;
+
+      div {
+        background-color: $VeryDarkBlue;
+        padding: 0.7rem;
+        height: 1rem;
+        margin-right: 0.7rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
+/* result */
+.result-container {
+  background-color: $DarkBlue;
+  height: 18vh;
+  padding: 0.3rem 3rem;
+  border-radius: 10px;
+
+  p {
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .level {
+    position: relative;
+
+    .drag-ball {
+      position: absolute;
+      top: 3px;
+      right: 10.3vw;
+      background: $PaleBlue;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    .level-bar {
+      width: 40vw;
+      height: 1rem;
+      padding: 0.2rem;
+      border-radius: 50px;
+      background: $VeryDarkBlue;
+
+      .level-bar-filled {
+        width: 30vw;
+        height: 1rem;
+        border-radius: 50px;
+        background-image: $gradient;
+      }
+    }
+  }
+  .bar-indicator {
+    height: 20px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+  }
+
+  .pop-up {
+    position: absolute;
+    top: 35vh;
+    right: 20vw;
+    background-color: white;
+    border-radius: 15px;
+    width: 15vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: black;
+      margin-right: 1rem;
+      font-weight: 900;
+    }
+    p {
+      z-index: 5;
+      color: rgb(218, 213, 213);
+      font-weight: 700;
+    }
+  }
+  .pop-up::after {
+    content: "";
+    background-color: white;
+    position: absolute;
+    border-bottom-left-radius: 1000%;
+    height: 50px;
+    width: 30px;
+    top: 40px;
+    right: 0;
+  }
+}
+
+/* media queries */
+
+@media (max-width: 500px) {
+  body {
+    background: url("images/bg-mobile.svg") no-repeat;
+    width: 100vw;
+    height: 100vh;
+  }
+  #desktop {
+    display: none;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
+
+    .nav-container {
+      width: 72vw;
+      margin-left: 2.5rem;
+      margin-top: 10vh;
+    }
+
+    .result-container {
+      height: 25vh;
+      width: 65vw;
+      margin-bottom: 17vh;
+
+      .storage-message {
+        margin-top: 1.4rem;
+        font-size: 0.9rem;
+      }
+      .pop-up {
+        p {
+          margin-top: 1.3rem;
+        }
+        top: 77vh;
+        right: 26.3vw;
+        width: 150px;
+        height: 55px;
+        padding: 0.5rem;
+      }
+      .pop-up::after {
+        display: none;
+      }
+
+      .level {
+        .drag-ball {
+          top: 3.2px;
+          right: 15vw;
+        }
+        .level-bar {
+          padding: 0.2rem;
+          width: 70vw;
+          .level-bar-filled {
+            width: 50vw;
+          }
+        }
+      }
+      .bar-indicator {
+        margin-top: 0.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
