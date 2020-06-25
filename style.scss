@@ -89,7 +89,7 @@ body {
     .drag-ball {
       position: absolute;
       top: 3px;
-      right: 10.3vw;
+      animation: moved 2s linear 0.4s forwards;
       background: $PaleBlue;
       width: 15px;
       height: 15px;
@@ -104,7 +104,7 @@ body {
       background: $VeryDarkBlue;
 
       .level-bar-filled {
-        width: 30vw;
+        animation: filled 2s linear 0.4s forwards;
         height: 1rem;
         border-radius: 50px;
         background-image: $gradient;
@@ -162,7 +162,7 @@ body {
 
 /* media queries */
 
-@media (max-width: 500px) {
+@media (max-width: 375px) and (max-height: 750px) {
   body {
     background: url("images/bg-mobile.svg") no-repeat;
     width: 100vw;
@@ -209,13 +209,13 @@ body {
       .level {
         .drag-ball {
           top: 3.2px;
-          right: 15vw;
+          animation: move 2s linear 0.4s forwards;
         }
         .level-bar {
           padding: 0.2rem;
           width: 70vw;
           .level-bar-filled {
-            width: 50vw;
+            animation: fill 2s linear 0.4s forwards;
           }
         }
       }
@@ -224,5 +224,108 @@ body {
         font-weight: 700;
       }
     }
+  }
+}
+
+@media (max-width: 500px) and (max-height: 900px) {
+  body {
+    background: url("images/bg-mobile.svg") no-repeat cover;
+    width: 100vw;
+    height: 100vh;
+  }
+  #desktop {
+    display: none;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
+
+    .nav-container {
+      width: 72vw;
+      margin-left: 2.5rem;
+      margin-top: 10vh;
+    }
+
+    .result-container {
+      height: 25vh;
+      width: 65vw;
+      margin-bottom: 17vh;
+
+      .storage-message {
+        margin-top: 1.4rem;
+        font-size: 0.9rem;
+      }
+      .pop-up {
+        p {
+          margin-top: 1.3rem;
+        }
+        top: 75vh;
+        right: 26.3vw;
+        width: 150px;
+        height: 55px;
+        padding: 0.5rem;
+      }
+      .pop-up::after {
+        display: none;
+      }
+
+      .level {
+        .drag-ball {
+          top: 3.2px;
+          animation: move 2s linear 0.4s forwards;
+        }
+        .level-bar {
+          padding: 0.2rem;
+          width: 70vw;
+          .level-bar-filled {
+            animation: fill 2s linear 0.4s forwards;
+          }
+        }
+      }
+      .bar-indicator {
+        margin-top: 0.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+/* keyframes */
+
+@keyframes fill {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 50vw;
+  }
+}
+
+@keyframes filled {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 30vw;
+  }
+}
+
+@keyframes move {
+  0% {
+    right: 63.4vw;
+  }
+  100% {
+    right: 15vw;
+  }
+}
+
+@keyframes moved {
+  0% {
+    right: 40vw;
+  }
+  100% {
+    right: 10.3vw;
   }
 }

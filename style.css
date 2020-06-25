@@ -102,7 +102,8 @@ body {
 .result-container .level .drag-ball {
   position: absolute;
   top: 3px;
-  right: 10.3vw;
+  -webkit-animation: moved 2s linear 0.4s forwards;
+          animation: moved 2s linear 0.4s forwards;
   background: #dddbff;
   width: 15px;
   height: 15px;
@@ -118,7 +119,8 @@ body {
 }
 
 .result-container .level .level-bar .level-bar-filled {
-  width: 30vw;
+  -webkit-animation: filled 2s linear 0.4s forwards;
+          animation: filled 2s linear 0.4s forwards;
   height: 1rem;
   border-radius: 50px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#ffa399), to(#ff4d97));
@@ -188,7 +190,7 @@ body {
 }
 
 /* media queries */
-@media (max-width: 500px) {
+@media (max-width: 375px) and (max-height: 750px) {
   body {
     background: url("images/bg-mobile.svg") no-repeat;
     width: 100vw;
@@ -235,18 +237,156 @@ body {
   }
   .container .result-container .level .drag-ball {
     top: 3.2px;
-    right: 15vw;
+    -webkit-animation: move 2s linear 0.4s forwards;
+            animation: move 2s linear 0.4s forwards;
   }
   .container .result-container .level .level-bar {
     padding: 0.2rem;
     width: 70vw;
   }
   .container .result-container .level .level-bar .level-bar-filled {
-    width: 50vw;
+    -webkit-animation: fill 2s linear 0.4s forwards;
+            animation: fill 2s linear 0.4s forwards;
   }
   .container .result-container .bar-indicator {
     margin-top: 0.5rem;
     font-weight: 700;
+  }
+}
+
+@media (max-width: 500px) and (max-height: 900px) {
+  body {
+    background: url("images/bg-mobile.svg") no-repeat cover;
+    width: 100vw;
+    height: 100vh;
+  }
+  #desktop {
+    display: none;
+  }
+  .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    justify-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+  .container .nav-container {
+    width: 72vw;
+    margin-left: 2.5rem;
+    margin-top: 10vh;
+  }
+  .container .result-container {
+    height: 25vh;
+    width: 65vw;
+    margin-bottom: 17vh;
+  }
+  .container .result-container .storage-message {
+    margin-top: 1.4rem;
+    font-size: 0.9rem;
+  }
+  .container .result-container .pop-up {
+    top: 75vh;
+    right: 26.3vw;
+    width: 150px;
+    height: 55px;
+    padding: 0.5rem;
+  }
+  .container .result-container .pop-up p {
+    margin-top: 1.3rem;
+  }
+  .container .result-container .pop-up::after {
+    display: none;
+  }
+  .container .result-container .level .drag-ball {
+    top: 3.2px;
+    -webkit-animation: move 2s linear 0.4s forwards;
+            animation: move 2s linear 0.4s forwards;
+  }
+  .container .result-container .level .level-bar {
+    padding: 0.2rem;
+    width: 70vw;
+  }
+  .container .result-container .level .level-bar .level-bar-filled {
+    -webkit-animation: fill 2s linear 0.4s forwards;
+            animation: fill 2s linear 0.4s forwards;
+  }
+  .container .result-container .bar-indicator {
+    margin-top: 0.5rem;
+    font-weight: 700;
+  }
+}
+
+/* keyframes */
+@-webkit-keyframes fill {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 50vw;
+  }
+}
+@keyframes fill {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 50vw;
+  }
+}
+
+@-webkit-keyframes filled {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 30vw;
+  }
+}
+
+@keyframes filled {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 30vw;
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    right: 63.4vw;
+  }
+  100% {
+    right: 15vw;
+  }
+}
+
+@keyframes move {
+  0% {
+    right: 63.4vw;
+  }
+  100% {
+    right: 15vw;
+  }
+}
+
+@-webkit-keyframes moved {
+  0% {
+    right: 40vw;
+  }
+  100% {
+    right: 10.3vw;
+  }
+}
+
+@keyframes moved {
+  0% {
+    right: 40vw;
+  }
+  100% {
+    right: 10.3vw;
   }
 }
 /*# sourceMappingURL=style.css.map */
